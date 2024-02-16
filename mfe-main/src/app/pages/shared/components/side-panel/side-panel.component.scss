@@ -1,0 +1,12 @@
+.navbar-expand-lg .navbar-nav {
+  flex-direction: column;
+}
+nav {
+  position: fixed;
+  min-height: 100vh;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 15%;
+  align-items: flex-start;
+}

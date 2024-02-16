@@ -1,0 +1,11 @@
+<!-- laptop-cards.component.html -->
+<div class="card-container">
+  <div class="card" *ngFor="let laptop of laptops">
+    <img [src]="laptop.image" alt="Laptop Image" />
+    <div class="card-body">
+      <h5 class="card-title">{{ laptop.name }}</h5>
+      <p class="card-text">{{ laptop.description }}</p>
+      <p class="card-price">{{ laptop.price }}</p>
+    </div>
+  </div>
+</div>
