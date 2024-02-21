@@ -10,9 +10,8 @@ sharedMappings.register(path.join(__dirname, "tsconfig.json"), [
 
 module.exports = {
   output: {
-    uniqueName: "mfeMain",
+    uniqueName: "info",
     publicPath: "auto",
-    scriptType: "text/javascript",
   },
   optimization: {
     runtimeChunk: false,
@@ -30,16 +29,12 @@ module.exports = {
       library: { type: "module" },
 
       // For remotes (please adjust)
-      name: "mfeMain",
+      name: "info",
       filename: "remoteEntry.js",
-      remotes: {
-        productApp: "http://localhost:4200/remoteEntry.js",
-        aboutApp: "http://localhost:4203/remoteEntry.js",
-        highChartsApp: "http://localhost:4202/remoteEntry.js",
+      exposes: {
+        "./Component": ".//src/app/app.component.ts",
+        AboutModule: ".//src/app/about/about.module.ts",
       },
-      // exposes: {
-      //     './Component': './/src/app/app.component.ts',
-      // },
 
       // For hosts (please adjust)
       // remotes: {

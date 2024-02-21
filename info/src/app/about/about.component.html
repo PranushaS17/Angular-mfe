@@ -1,0 +1,10 @@
+<div class="m-3">
+  <h5 class="text-secondary">Hello {{username}},</h5>
+  <h5>Contact Information :</h5>
+  <ul>
+    <li *ngFor="let contact of contacts">
+      <strong>Name:</strong> {{ contact.name }} <br />
+      <strong>Email:</strong> {{ contact.email }}
+    </li>
+  </ul>
+</div>

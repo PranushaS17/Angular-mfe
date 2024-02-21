@@ -19,6 +19,25 @@ const routes: Routes = [
           }).then((m) => m.ProductsModule),
       },
       {
+        path: 'about',
+        loadChildren: () =>
+          loadRemoteModule({
+            type: 'module',
+            remoteEntry: 'http://localhost:4203/remoteEntry.js',
+            exposedModule: 'AboutModule',
+          }).then((m) => m.AboutModule),
+        data: { username: 'Pranusha' },
+      },
+      {
+        path: 'highCharts',
+        loadChildren: () =>
+          loadRemoteModule({
+            type: 'module',
+            remoteEntry: 'http://localhost:4202/remoteEntry.js',
+            exposedModule: 'ChartsModule',
+          }).then((m) => m.ChartsModule),
+      },
+      {
         path: '',
         redirectTo: 'products',
         pathMatch: 'full',
