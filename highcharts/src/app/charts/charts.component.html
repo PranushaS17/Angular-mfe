@@ -1,10 +1,14 @@
 <div class="card-container">
   <highcharts-chart
     [Highcharts]="Highcharts"
-    [options]="lineChartOptions"
-  ></highcharts-chart>
+    [options]="doughnutChartOptionsV"
+    ></highcharts-chart>
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="doughnutChartOptions"
+    ></highcharts-chart>
   <highcharts-chart
     [Highcharts]="Highcharts"
-    [options]="doughnutChartOptions"
+    [options]="lineChartOptions"
   ></highcharts-chart>
 </div>

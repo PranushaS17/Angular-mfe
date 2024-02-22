@@ -34,3 +34,17 @@ highcharts-chart {
   height: 40%;
   display: block;
 }
+
+.legend-title {
+  display: inline-block;
+  width: 120px;
+  margin: 1px 10px;
+  padding: 0 5px;
+}
+
+.legend-value {
+  display: inline-block;
+  margin: 1px 10px;
+  padding: 0 5px;
+  font-weight: bolder;
+}

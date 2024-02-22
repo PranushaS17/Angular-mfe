@@ -8,11 +8,12 @@ import * as Highcharts from 'highcharts';
 })
 export class ChartsComponent implements OnInit {
   public doughnutChartData = [
-    { name: 'Category 1', y: 25 },
-    { name: 'Category 2', y: 10 },
-    { name: 'Category 3', y: 15 },
-    { name: 'Category 4', y: 25 },
-    { name: 'Category 4', y: 25 },
+    { name: 'Booked', y: 948 },
+    { name: 'At Origin Hub', y: 786 },
+    { name: 'En Route To Destination', y: 627 },
+    { name: 'At Destination Hub', y: 192 },
+    { name: 'Delivery Scheduled', y: 469 },
+    { name: 'Exception', y: 205 },
   ];
   public Highcharts: typeof Highcharts = Highcharts;
   // chartConstructor: string = 'chart';
@@ -24,16 +25,95 @@ export class ChartsComponent implements OnInit {
   public lineChartOptions!: Highcharts.Options;
 
   public doughnutChartOptions!: Highcharts.Options;
+  public doughnutChartOptionsV!: Highcharts.Options;
 
   ngOnInit() {
     this.setLineChartProps();
     this.setDoughnutChartProps();
+    this.setDoughnutChartVerticalLegendProps();
+  }
+
+  private setDoughnutChartVerticalLegendProps() {
+    this.doughnutChartOptionsV = {
+      title: {
+        text: 'Doughnut chart with vertical legend',
+        align: 'center',
+      },
+      chart: {
+        type: 'pie',
+      },
+      legend: {
+        enabled: true,
+        align: 'center',
+        alignColumns: true,
+        layout: 'vertical',
+        margin: 10,
+        padding: 8,
+        borderRadius: 0,
+        // borderWidth: 2,
+        useHTML: true,
+        // width: '100%',
+        itemMarginTop: 10,
+        labelFormat:
+        `<div style="width:30vh;padding-left:2%"><span style="float:left">{name}</span><b style="float:right">{y}</b></div>`,
+        symbolRadius: 0, // to make icon as square
+        symbolHeight: 12,
+        symbolWidth: 7,
+        squareSymbol: false,
+        // labelFormatter: function () {
+        //   return (
+        //     '<div style="width:30vh;"><span style="float:left;color:#ccc">' +
+        //     this.name +
+        //     '</span><span style="float:right">' +
+        //     this.percentage.toFixed(0) +
+        //     '%</span></div>'
+        //   );
+        // },
+      },
+      tooltip: {
+        // pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+        enabled: false,
+      },
+      plotOptions: {
+        pie: {
+          borderWidth: 3,
+          borderColor: '#ffff',
+          dataLabels: {
+            enabled: false, // labels on chart
+            crop: false,
+            distance: -70,
+          },
+          size: '100%',
+          borderRadius: 5,
+          showInLegend: true, // labels at the bottom of the chart
+        },
+      },
+      colors: [
+        '#FE575E',
+        '#00BC6F',
+        '#0078BC',
+        '#FA9D5A',
+        '#A54BFF',
+        '#4BA9FF',
+      ],
+      series: [
+        {
+          type: 'pie',
+          name: 'Dummy data',
+          data: this.doughnutChartData,
+          innerSize: '60%',
+        },
+      ],
+      credits: {
+        enabled: false,
+      },
+    };
   }
 
   private setDoughnutChartProps() {
     this.doughnutChartOptions = {
       title: {
-        text: 'Doughnut chart',
+        text: 'Doughnut chart with horizontal legend',
         align: 'center',
       },
       chart: {
@@ -43,11 +123,14 @@ export class ChartsComponent implements OnInit {
       legend: {
         enabled: true,
       },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+      },
       plotOptions: {
         pie: {
           borderWidth: 0,
           dataLabels: {
-            enabled: true,
+            enabled: false, // labels on chart
             crop: false,
             distance: -70,
             // style: {
@@ -55,21 +138,32 @@ export class ChartsComponent implements OnInit {
             //   fontSize: '16px',
             // },
           },
-          // startAngle: -90,
-          // endAngle: 90,
+          // startAngle: -90, // for half doughnut chart
+          // endAngle: 90,  // for half doughnut chart
           // center: ['50%', '75%'],
           size: '100%',
+          showInLegend: true, // labels at the bottom of the chart
         },
       },
-      colors: ['#FCE700', '#F8C4B4', '#f6e1ea', '#B8E8FC', '#BCE29E'],
+      colors: [
+        '#FFBD4B',
+        '#FE575E',
+        '#BD5AFA',
+        '#4BA9FF',
+        '#49CC8D',
+        '#0078BC',
+      ],
       series: [
         {
           type: 'pie',
           name: 'Dummy data',
           data: this.doughnutChartData,
-          innerSize: '70%'
+          innerSize: '70%',
         },
       ],
+      credits: {
+        enabled: false,
+      },
     };
   }
 
