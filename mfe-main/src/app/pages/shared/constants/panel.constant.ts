@@ -5,9 +5,9 @@ export const MENU = [
     url: 'products',
   },
   {
-    id: 'highCharts',
-    name: 'High Charts',
-    url: 'highCharts',
+    id: 'charts',
+    name: 'Charts',
+    url: 'charts',
   },
   {
     id: 'about',

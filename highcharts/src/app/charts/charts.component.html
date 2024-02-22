@@ -1,14 +1,16 @@
-<div class="card-container">
-  <highcharts-chart
-    [Highcharts]="Highcharts"
-    [options]="doughnutChartOptionsV"
-    ></highcharts-chart>
-    <highcharts-chart
-      [Highcharts]="Highcharts"
-      [options]="doughnutChartOptions"
-    ></highcharts-chart>
-  <highcharts-chart
-    [Highcharts]="Highcharts"
-    [options]="lineChartOptions"
-  ></highcharts-chart>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="./highcharts">Highcharts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="./echarts">ECharts</a>
+      </li>
+      <!-- <li class="nav-item active">
+        <a class="nav-link" routerLink="./order">Order</a>
+      </li> -->
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>

@@ -29,7 +29,7 @@ const routes: Routes = [
         data: { username: 'Pranusha' },
       },
       {
-        path: 'highCharts',
+        path: 'charts',
         loadChildren: () =>
           loadRemoteModule({
             type: 'module',
