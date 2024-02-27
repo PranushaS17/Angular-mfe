@@ -1,5 +1,15 @@
-<div
-  echarts
-  [options]="doughnutChartOptions"
-  style="width: 600px; height: 500px"
+<div class="card-container">
+  <div
+    echarts
+    [options]="verticalLegendOptions"
+    style="width: 600px; height: 500px"
   ></div>
+  <div class="">
+    <h6>Doughnut chart with horizontal legend</h6>
+    <div
+      echarts
+      [options]="horizontalLegendOptions"
+      style="width: 600px; height: 500px"
+    ></div>
+  </div>
+</div>

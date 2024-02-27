@@ -1,3 +1,9 @@
-// div{
-//     height: 800px;
-// }
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+h6 {
+  text-align: center;
+  margin-top: 10px;
+}
