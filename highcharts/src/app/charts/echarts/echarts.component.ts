@@ -27,7 +27,6 @@ export class EchartsComponent implements OnInit {
         left: 'center',
         bottom: 0, // Adjusted bottom position
         padding: [10, 20],
-        type: 'scroll'
       },
       grid: {
         // containLabel: true
@@ -36,21 +35,47 @@ export class EchartsComponent implements OnInit {
         {
           name: 'Access From',
           type: 'pie',
-          radius: ['30%', '60%'], // for doughnut chart
+          top: 0,
+          bottom: 100, // to prevent overlapping when there is a bottom vertical legend
+          radius: ['30%', '55%'], // for doughnut chart
           avoidLabelOverlap: false,
           padAngle: 3, // for gap between slices
           itemStyle: {
             borderRadius: 5,
           },
+          tooltip: {
+            show: false,
+          },
           label: {
             show: false,
             position: 'center',
+            verticalAlign: 'middle',
+            width: 100,
+            overflow: 'break',
           },
           emphasis: {
             label: {
               show: true,
               fontSize: 14,
               fontWeight: 'bold',
+              formatter: (val) =>
+                `{primary|${val.value}}\n
+{secondary|${val.name}}`,
+              // formatter: (item) => {
+              //   return '{primary|}'+item.value+'{secondary|}'+item.name
+              // },
+              rich: {
+                primary: {
+                  fontSize: 16,
+                  fontWeight: 'bolder',
+                  padding: 8,
+                },
+                secondary: {
+                  fontSize: 14,
+                  color: 'darkgray',
+                  fontWeight: 'bolder',
+                },
+              },
             },
           },
           labelLine: {
