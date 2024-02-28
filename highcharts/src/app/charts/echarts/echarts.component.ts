@@ -67,7 +67,6 @@ export class EchartsComponent implements OnInit {
       },
       series: [
         {
-          name: 'Access From',
           type: 'pie',
           top: 0,
           bottom: 100, // to prevent overlapping when there is a bottom vertical legend
@@ -95,9 +94,6 @@ export class EchartsComponent implements OnInit {
               formatter: (val) =>
                 `{primary|${val.value}}\n
 {secondary|${val.name}}`,
-              // formatter: (item) => {
-              //   return '{primary|}'+item.value+'{secondary|}'+item.name
-              // },
               rich: {
                 primary: {
                   fontSize: 16,
@@ -129,11 +125,15 @@ export class EchartsComponent implements OnInit {
       title: {
         text: '485\nTotal Quotes',
         left: 'center',
-        top: 'center'
+        // top: 'center',
+        bottom: 280,
+        textStyle: {
+          fontSize: 14,
+        },
       },
       legend: {
         orient: 'horizontal',
-        bottom: 125, // Adjusted bottom position
+        bottom: 190, // Adjusted bottom position
         padding: [20, 20],
         formatter: (name) => {
           const val = this.data2.filter((item) => item.name == name)[0].value;
@@ -167,10 +167,9 @@ export class EchartsComponent implements OnInit {
       },
       series: [
         {
-          name: 'Access From',
           type: 'pie',
           top: 0,
-          bottom: 0, // to prevent overlapping when there is a bottom vertical legend
+          bottom: 100, // to prevent overlapping when there is a bottom vertical legend
           radius: ['30%', '55%'], // for doughnut chart
           center: ['50%', '55%'],
           avoidLabelOverlap: false,
@@ -185,34 +184,12 @@ export class EchartsComponent implements OnInit {
           },
           label: {
             show: false,
-            position: 'center',
-            verticalAlign: 'top',
-            width: 100,
-            overflow: 'break',
-          },
-          emphasis: {
-            label: {
-              show: false,
-              fontSize: 14,
-              fontWeight: 'bold',
-              rich: {
-                primary: {
-                  fontSize: 16,
-                  fontWeight: 'bolder',
-                  padding: 8,
-                },
-                secondary: {
-                  fontSize: 14,
-                  color: 'darkgray',
-                  fontWeight: 'bolder',
-                },
-              },
-            },
           },
           labelLine: {
             show: false,
           },
           data: this.data2,
+          color: this.data2.map((item) => item.color),
         },
       ],
     };

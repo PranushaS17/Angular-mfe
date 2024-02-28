@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChartsComponent } from './charts.component';
+import { DynamicEchartsComponent } from './dynamic-echarts/dynamic-echarts.component';
 import { EchartsComponent } from './echarts/echarts.component';
 import { HighchartsComponent } from './highcharts/highcharts.component';
 
@@ -15,7 +16,11 @@ const routes: Routes = [
       },
       {
         path: 'echarts',
-        component: EchartsComponent
+        component: EchartsComponent,
+      },
+      {
+        path: 'dynamic-echarts',
+        component: DynamicEchartsComponent,
       },
       {
         path: '',
