@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { EChartsOption } from 'echarts';
 
 @Component({
@@ -6,18 +13,19 @@ import { EChartsOption } from 'echarts';
   templateUrl: './semi-doughnut-echart.component.html',
   styleUrls: ['./semi-doughnut-echart.component.scss'],
 })
-export class SemiDoughnutEchartComponent implements OnInit {
+export class SemiDoughnutEchartComponent implements OnInit, AfterViewInit {
   @Input() config: any;
+  @ViewChild('echart') chart: ElementRef;
 
   public options: EChartsOption = {
     tooltip: {
       trigger: 'item',
     },
     title: {
-      text: '485\nTotal Quotes',
+      // text: '485\nTotal Quotes',
       left: 'center',
-      // top: 'center',
-      bottom: 85,
+      top: 'center',
+      // bottom: 85,
       textStyle: {
         fontSize: 14,
       },
@@ -26,7 +34,8 @@ export class SemiDoughnutEchartComponent implements OnInit {
       orient: 'horizontal',
       bottom: 0, // Adjusted bottom position
       padding: [0, -180],
-      itemWidth: 10
+      itemWidth: 10,
+      itemGap: 10,
     },
     series: [
       {
@@ -56,6 +65,7 @@ export class SemiDoughnutEchartComponent implements OnInit {
       },
     ],
   };
+
   ngOnInit() {
     const series = [
       {
@@ -65,7 +75,14 @@ export class SemiDoughnutEchartComponent implements OnInit {
         color: this.config.data.map((item: any) => item.color),
       },
     ];
-    this.options.series = series;
+    this.options = {
+      ...this.options,
+      title: { ...this.options.title, text: this.config.text },
+      series,
+    };
+  }
+
+  ngAfterViewInit() {
     this.options.legend = {
       ...this.options.legend,
       formatter: (name) => {
@@ -87,7 +104,7 @@ export class SemiDoughnutEchartComponent implements OnInit {
               padding: [5, 0],
             },
             label: {
-              fontSize: 10,
+              fontSize: this.autoFontSize(),
               width: 10,
               align: 'center',
               overflow: 'break',
@@ -102,5 +119,17 @@ export class SemiDoughnutEchartComponent implements OnInit {
         },
       })),
     };
+  }
+
+  private autoFontSize() {
+    let width = this.chart.nativeElement.clientWidth;
+    let newFontSize = 10;
+    if (width > 400) {
+      newFontSize = Math.round(width / 50);
+    }
+    console.log(
+      `Current width : ${width}, Updating Fontsize to ${newFontSize}`
+    );
+    return newFontSize;
   }
 }

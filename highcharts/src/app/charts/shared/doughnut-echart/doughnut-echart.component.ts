@@ -10,9 +10,6 @@ export class DoughnutEchartComponent implements OnInit {
   @Input() config: any;
 
   public options: EChartsOption = {
-    tooltip: {
-      trigger: 'item',
-    },
     legend: {
       orient: 'vertical',
       left: 'center',
@@ -41,7 +38,7 @@ export class DoughnutEchartComponent implements OnInit {
         top: '-20%',
         left: '-20%',
         right: '-20%',
-        bottom: 130, // to prevent overlapping when there is a bottom vertical legend
+        bottom: '20%', // to prevent overlapping when there is a bottom vertical legend
         radius: ['30%', '55%'], // for doughnut chart
         avoidLabelOverlap: false,
         padAngle: 3, // for gap between slices
