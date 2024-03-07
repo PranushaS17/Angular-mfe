@@ -1,0 +1,22 @@
+.ngx-color {
+  &.p-card {
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .p-card-body {
+      padding: 0;
+    }
+
+    .p-card-content {
+      padding: 2rem !important;
+      background: #a6120d;
+      color: #fff;
+    }
+
+    .p-card-title {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.75rem;
+      margin: 0%;
+    }
+  }
+}

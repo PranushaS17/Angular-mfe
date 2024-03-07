@@ -1,0 +1,14 @@
+@import "node_modules/primeng/resources/themes/saga-blue/theme.css";
+@import "node_modules/primeng/resources/primeng.min.css";
+@import "node_modules/primeflex/primeflex.css";
+@import "node_modules/primeicons/primeicons.css";
+
+.p-dropdown-items-wrapper {
+  ul {
+    padding-left: 0% !important;
+  }
+}
+.p-dropdown,
+.p-calendar {
+  width: -webkit-fill-available;
+}

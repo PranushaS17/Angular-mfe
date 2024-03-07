@@ -1,0 +1,89 @@
+<form *ngIf="form" [formGroup]="form">
+  <div class="row">
+    <div class="col-3">
+      <div class="flex flex-column gap-2">
+        <label for="contactNumber" class="text-secondary text-sm mt-3"
+          >Contact Number</label
+        >
+        <input
+          pInputText
+          id="contactNumber"
+          [formControlName]="'contactNumber'"
+        />
+      </div>
+      <div class="flex flex-column gap-2">
+        <label for="orderType" class="text-secondary text-sm mt-3"
+          >Order Type</label
+        >
+        <input pInputText id="orderType" [formControlName]="'orderType'" />
+      </div>
+      <label for="orderType" class="text-secondary text-sm mt-3"
+        >Order Status Group</label
+      >
+      <p-dropdown
+        class="d-block"
+        [formControlName]="'orderStatusGroup'"
+        [options]="statusGrp"
+        optionLabel="name"
+        placeholder="Select a group"
+      ></p-dropdown>
+      <div class="row">
+        <div class="col">
+          <label
+            for="pickUpFromDt"
+            class="block mb-2 text-secondary text-sm mt-3"
+          >
+            Pick-up From Date
+          </label>
+          <p-calendar
+            [formControlName]="'pickUpFromDt'"
+            [showIcon]="true"
+            inputId="pickUpFromDt"
+          ></p-calendar>
+        </div>
+        <div class="col">
+          <label
+            for="pickUpToDt"
+            class="block mb-2 text-secondary text-sm mt-3"
+          >
+            Pick-up To Date
+          </label>
+          <p-calendar
+            [formControlName]="'pickUpToDt'"
+            [showIcon]="true"
+            inputId="pickUpToDt"
+          ></p-calendar>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label
+            for="deliveryFromDt"
+            class="block mb-2 text-secondary text-sm mt-3"
+          >
+            Delivery From Date
+          </label>
+          <p-calendar
+            [formControlName]="'deliveryFromDt'"
+            [showIcon]="true"
+            inputId="deliveryFromDt"
+          ></p-calendar>
+        </div>
+        <div class="col">
+          <label
+            for="deliveryToDt"
+            class="block mb-2 text-secondary text-sm mt-3"
+          >
+            Delivery To Date
+          </label>
+          <p-calendar
+            [formControlName]="'deliveryToDt'"
+            [showIcon]="true"
+            inputId="deliveryToDt"
+          ></p-calendar>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-secondary btn-sm" (click)="submit()">Submit</button>
+</form>
