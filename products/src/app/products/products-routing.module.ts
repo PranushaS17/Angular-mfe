@@ -6,6 +6,7 @@ import { LaptopsComponent } from './components/laptops/laptops.component';
 import { MobileComponent } from './components/mobile/mobile.component';
 import { OrderComponent } from './components/order/order.component';
 import { ProductsComponent } from './products.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'filters',
         component: FiltersComponent
+      },
+      {
+        path: 'calendar',
+        component: CalendarComponent
       },
       {
         path: '',

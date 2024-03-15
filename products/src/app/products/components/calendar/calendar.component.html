@@ -1,0 +1,56 @@
+<form [formGroup]="dateForm" *ngIf="dateForm">
+  <div class="d-flex">
+    <div class="card mx-3">
+      <p-calendar
+        [formControlName]="'originDate'"
+        [showOtherMonths]="false"
+        [inline]="true"
+        [firstDayOfWeek]="1"
+        [showWeek]="true"
+      >
+        <ng-template pTemplate="date" let-date>
+          <td
+            [ngClass]="getClassCondition(date, originDtConfig)"
+            style="border-radius: 50%"
+          >
+            <span>{{ date.day }}</span>
+          </td>
+        </ng-template></p-calendar
+      >
+    </div>
+    <div class="card mx-3">
+      <p-calendar
+        [formControlName]="'destinationDt'"
+        [inline]="true"
+        [showOtherMonths]="false"
+        [firstDayOfWeek]="1"
+      >
+        <ng-template pTemplate="date" let-date>
+          <td
+            [ngClass]="getClassCondition(date, destinationDtConfig)"
+            style="border-radius: 50%"
+          >
+            <span>{{ date.day }}</span>
+          </td>
+        </ng-template></p-calendar
+      >
+    </div>
+  </div>
+</form>
+<!-- [ngStyle]="{
+  background:
+    date.day < 21 && date.day > 11 ? '#7cc67c' : 'inherit',
+  color: 'grey',
+  borderColor: 'transparent'
+}" -->
+
+<!-- <td
+          [ngClass]="date.day < 21 && date.day > 11 ? 'origin-highlight' : ''"
+        >
+          <span>{{ date.day }}</span>
+        </td> -->
+
+<!-- [ngStyle]="{
+  background: date.day < 21 && date.day > 11 ? '#7cc67c' : 'inherit'
+}"
+style="border-radius: 50%;" -->

@@ -10,7 +10,7 @@ export interface ObjectToQuery {
   selector: 'app-filters',
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
 })
 export class FiltersComponent implements OnInit {
   public form: FormGroup;
